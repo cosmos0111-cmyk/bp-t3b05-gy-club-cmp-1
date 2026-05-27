@@ -1,314 +1,127 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>가양 클럽 비교 & 유흥 밤문화 가이드 - 가양 가성비 놀이터</title>
-    <meta name="description" content="가양 클럽 비교 최신판! 가양역 인근 라운지 클럽, 가라오케, 셔츠룸의 실시간 가격대 분석 및 내돈내산 2차 추천 꿀팁을 제공합니다.">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: hsl(30, 100%, 50%);
-            --secondary: hsl(15, 100%, 50%);
-            --dark: hsl(20, 15%, 8%);
-            --card-bg: hsl(20, 15%, 13%);
-            --text: hsl(0, 0%, 94%);
-            --text-muted: hsl(20, 10%, 70%);
-            --border: hsl(30, 40%, 20%);
-        }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background-color: var(--dark);
-            color: var(--text);
-            font-family: 'Outfit', 'Noto Sans KR', sans-serif;
-            line-height: 1.7;
-            padding-bottom: 60px;
-        }
-        header {
-            background: linear-gradient(135deg, var(--dark), var(--card-bg));
-            border-bottom: 2px solid var(--border);
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--primary);
-        }
-        .hero {
-            background: radial-gradient(circle at center, hsl(30, 40%, 15%), var(--dark));
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-        .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(255, 100, 0, 0.4);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 100, 0, 0.6);
-        }
-        .main-content {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .intro-section {
-            margin-bottom: 50px;
-        }
-        .intro-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary);
-            padding-left: 15px;
-        }
-        .intro-section p {
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 25px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-        .reviews-section {
-            margin: 60px 0;
-            background: linear-gradient(135deg, var(--card-bg), var(--dark));
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-        .reviews-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .review-card {
-            background-color: var(--dark);
-            border-left: 4px solid var(--secondary);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 0 12px 12px 0;
-        }
-        .review-card p {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .review-author {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        .info-bar {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            padding: 20px;
-            text-align: center;
-            font-weight: 800;
-            font-size: 1.4rem;
-            border-radius: 12px;
-            margin: 50px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .info-bar a {
-            color: #fff;
-            text-decoration: underline;
-        }
-        footer {
-            background-color: #120904;
-            padding: 40px 20px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        footer p {
-            margin-bottom: 10px;
-        }
-        footer strong {
-            color: var(--text);
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-        }
-    </style>
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "가양 클럽 비교 분석 센터",
-      "description": "가양역 인근 라운지 클럽, 노래방, 유흥 가성비 1:1 비교 솔직 가이드.",
-      "telephone": "010-6279-0862",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "강서구 가양역",
-        "addressCountry": "KR"
-      },
-      "priceRange": "$$"
-    }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가양 클럽 제대로 즐기기 | 가양 클럽 비교 내돈내산 찐후기</title>
+  <meta name="description" content="이번 주말에 친구들이랑 찌든 피로와 일상의 지루함을 날려버릴 화끈한 불금 불토 레이싱을 달리고 싶은데, 물 좋은 클럽이 어딘지, 괜히 입뺀 당하지 않고 폼 나게 즐기는 비법이 뭔지 몰라 답답했지? 특히 우리 가양 근처에서 힙하고 핫한 클럽 룩북 정보나 테이블 가격 비교...">
+  <meta name="keywords" content="가양 클럽, 가양 클럽 비교, 클럽 가성비, 가양 밤문화">
+  <link rel="canonical" href="https://t3b05-gy-club-cmp-1.pages.dev/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="가양 클럽 제대로 즐기기 | 가양 클럽 비교 내돈내산 찐후기">
+  <meta property="og:description" content="이번 주말에 친구들이랑 찌든 피로와 일상의 지루함을 날려버릴 화끈한 불금 불토 레이싱을 달리고 싶은데, 물 좋은 클럽이 어딘지, 괜히 입뺀 당하지 않고 폼 나게 즐기는 비법이 뭔지 몰라 답답했지? 특히 우리 가양 근처에서 힙하고 핫한 클럽 룩북 정보나 테이블 가격 비교...">
+  <meta property="og:url" content="https://t3b05-gy-club-cmp-1.pages.dev/index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="bpaas-design-system" content="midnight-glass">
+  <meta name="bpaas-design-theme" content="kr-midnight-glass">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+      :root {
+        --bg: #090d16;
+        --fg: #f1f5f9;
+        --accent: #a78bfa;
+        --muted: #94a3b8;
+        --border: rgba(255,255,255,0.08);
+      }
+      body { background: var(--bg); color: var(--fg); font-family: 'Pretendard', sans-serif; line-height: 1.8; }
+      header { border-bottom: 1px solid var(--border); padding: 20px 0; background: rgba(9, 13, 22, 0.8); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; }
+      .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+      .hero { padding: 120px 0; text-align: center; background: radial-gradient(circle at center, rgba(167, 139, 250, 0.08), transparent 70%); }
+      .hero h1 { font-size: 3.2rem; font-weight: 800; color: #fff; margin-bottom: 20px; text-shadow: 0 0 20px rgba(167, 139, 250, 0.2); }
+      .btn { display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, #a78bfa, #7c3aed); color: #fff; text-decoration: none; font-weight: 700; border-radius: 30px; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); transition: all 0.3s; }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5); }
+      .content-section { padding: 80px 0; }
+      .card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); backdrop-filter: blur(8px); padding: 30px; border-radius: 16px; margin-bottom: 24px; }
+      .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+      .review-card { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border); padding: 24px; border-radius: 16px; }
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; border: 1px solid var(--border); }
+    th, td { padding: 12px; border: 1px solid var(--border); text-align: center; }
+    th { background: rgba(0,0,0,0.02); font-weight: bold; }
+    header .container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 900; text-decoration: none; color: var(--fg); letter-spacing: -0.05em; }
+    nav a { color: var(--fg); text-decoration: none; font-weight: 700; margin-left: 12px; font-size: 0.9rem; }
+    nav a:hover { color: var(--accent); }
+    footer { border-top: 1px solid var(--border); padding: 40px 0; background: rgba(0,0,0,0.01); color: var(--muted); font-size: 0.85rem; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; }
+    footer a { color: var(--muted); text-decoration: none; font-weight: bold; }
+    footer a:hover { color: var(--accent); }
+    .p-bar { background: var(--accent); color: #fff; padding: 10px 0; text-align: center; font-weight: 700; font-size: 0.95rem; }
+    .p-bar a { color: #fff; text-decoration: underline; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"가양 클럽 스페셜 센터","url":"https://t3b05-gy-club-cmp-1.pages.dev","telephone":"010-6279-0862","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"가양","addressCountry":"KR"}}</script>
 </head>
 <body>
-
-<header>
-    <div class="header-container">
-        <div class="logo">Gayang Sunset</div>
-        <nav>
-            <a href="index.html">홈</a>
-            <a href="about.html">소개</a>
-            <a href="blog.html">블로그</a>
-        </nav>
+  <div class="p-bar">🚨 형님들 눈탱이 없는 리얼 정찰제 문의: <a href="tel:010-6279-0862">📞 010-6279-0862</a> (24시간 실시간 대기)</div>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">가양.클럽</a>
+      <nav><a href="index.html">홈</a> | <a href="about.html">정보</a> | <a href="blog.html">블로그</a></nav>
     </div>
-</header>
-
-<section class="hero">
-    <h1>가양 클럽 비교 <span>리얼 해부학</span></h1>
-    <p>가양역 밤거리에서 어떤 2차가 제일 돈값 할까? 라운지부터 노래타운, 셔츠룸까지 솔직 명확한 비교 분석!</p>
-    <a href="tel:010-6279-0862" class="cta-btn">가양 핫플 예약 직통: 010-6279-0862</a>
-</section>
-
-<div class="main-content">
-    <section class="intro-section">
-        <h2>가양역 주변 유흥 클럽, 도대체 어디가 찐일까?</h2>
-        <p>어이 브로들! 다들 주말이나 퇴근 후에 가양역 근처에서 친구들이랑 술 마시고 2차 갈 때, '가양 클럽'이나 '가양 가라오케' 쳐보면서 마땅한 정보 없어서 고민해본 적 있지? 가양동이 마곡이랑 발산 사이에 껴있어서 유흥 인프라가 꽤나 쏠쏠하게 발달해 있는데도, 인터넷에는 쓸데없는 낚시성 홍보 블로그만 한가득이야. 그래서 내가 가양 로컬로서 돈 아깝지 않게 노는 법을 직접 전파하려고 글을 쓴다.</p>
-        <p>가양동 근처는 직장인들이 많이 몰리기 때문에 시스템과 서비스의 퀄리티가 아주 예민하게 굴러가. 삐끗하면 다음 날 소문 싹 퍼져서 업소들이 오래 버티질 못하지. 그렇기에 지금 살아남은 제휴 업소들은 정말 검증된 최정예라고 봐도 무방해. 덤터기 없이 정직하고 화끈한 케어를 원한다면 이 가이드를 눈여겨봐라 브로.</p>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>가양 클럽 비교</h1>
+        <p style="font-size:1.25rem; margin-bottom:30px; opacity:0.9;">20대 후반 ~ 30대 초반 직장인 형님들의 리얼 내돈내산 가성비 밤문화 힐링 아카이브</p>
+        <a href="tel:010-6279-0862" class="btn">실시간 예약 및 가격 확인 (전화걸기)</a>
+      </div>
     </section>
+    
+    <section class="content-section">
+      <div class="container">
+        <div class="card" style="border:none;">
+          <h2 style="font-size:2rem; margin-bottom:24px; color:var(--accent);">형이 솔직하게 털어놓는 가양 밤문화 리얼 팩트</h2>
+          <p style="margin-bottom:20px; font-size:1.1rem; line-height:1.9;">이번 주말에 친구들이랑 찌든 피로와 일상의 지루함을 날려버릴 화끈한 불금 불토 레이싱을 달리고 싶은데, 물 좋은 클럽이 어딘지, 괜히 입뺀 당하지 않고 폼 나게 즐기는 비법이 뭔지 몰라 답답했지? 특히 우리 가양 근처에서 힙하고 핫한 클럽 룩북 정보나 테이블 가격 비교 검색해 보면 다 철 지난 광고글들 뿐이라 빡쳤을 거임. 그래서 형이 공항 및 합정 일대에서 가장 핫하고 이쁜이들 가득한 클럽 룩북과 리얼 비교 가이드를 싹 모아서 대방출함. 내 동생들 클럽 입구 컷 없이 VIP급으로 대우받으며 최고의 텐션으로 즐길 수 있도록 형이 뒤에서 모든 예약 안전하고 스마트하게 에스코트해 줄 테니 걱정 말고 연락해라. 예약 직통 010-6279-0862 이 번호 하나면 실시간 테이블 예약과 스페셜 게스트 입장이 칼같이 세팅된다.</p>
+          <div style="background:rgba(0,0,0,0.01); border-left:4px solid var(--accent); padding:20px; margin:30px 0; font-style:italic;">
+            "형님들, 이상한 호객꾼(삐끼) 꼬임에 넘어가서 지하 어두컴컴한 지하실 끌려가서 양주 한 병에 백만 원씩 뜯기는 시대는 지났음. 형이 딱 가격 정찰제 걸고 에이스들만 매칭해 주니까 의심 말고 연락하길."
+          </div>
+          <p>요즘 트렌디한 클럽은 단순한 춤추는 공간이 아님. EDM부터 최신 힙합, 하우스 비트까지 최고의 DJ 라인업과 웅장한 사운드 시스템, 그리고 눈이 번쩍 뜨이는 초호화 레이저 특수 효과가 어우러진 미래형 테크노 라운지임. 눈탱이 방지를 위해 형은 철저하게 클럽 테이블 및 게스트 예약을 공식 가격 정찰제로 연계해주고 있고, 어설픈 삐끼 장난질이나 바가지 주류 장사 아예 원천 차단해 놨음. 힙한 동생들의 패션 가이드(룩북) 트렌드와 핫플레이스 동선 비교를 제공해서 인생 최고의 주말 밤을 완벽 보장한다.</p>
+      <p>특히 이곳 가양 클럽 라인은 수질 관리와 안전에 엄청난 신경을 쓰고 있어서, 트렌디하고 이쁜 남녀 동생들이 매 주말 가득 채워져 물 좋은 거로는 마포 강서 일대 탑클래스라고 자부함. 010-6279-0862 이 예약 라인으로 미리 불금 불토 테이블 예약 문자 한 통 날려주면 바로 입뺀 패스 가능한 코디 조언부터 최고의 명당 테이블 확보까지 논스톱 케어 들어간다. 주말 밤 어설픈 데서 방황하다 시간 날리지 말고, 검증된 최고 텐션 클럽에서 화끈하게 인생 샷 찍고 신나게 힐링하고 가라. 형이 풀 케어 해준다.</p>
+        </div>
 
-    <div class="info-bar">
-        🔥 가양역 실시간 유흥 비교 & 특별 견적: <a href="tel:010-6279-0862">010-6279-0862</a> (큰형 직통)
+        <div style="margin-top:60px;">
+          <h2 style="font-size:2rem; margin-bottom:24px; color:var(--accent);">형님들이 직접 남겨주신 가양 클럽 리얼 찐후기</h2>
+          <div class="review-grid">
+    <div class="review-card">
+      <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+        <strong>황지민</strong>
+        <span style="color:#e0a82e;">⭐⭐⭐⭐⭐</span>
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted);">합정 쪽 클럽 비교글 보고 예약 번호 010-6279-0862로 테이블 예약하고 갔는데 자리도 대박 명당이고 샴페인 서비스까지 대만족입니다. 주말마다 갈게요!</p>
+      <small style="display:block; margin-top:10px; color:#bbb;">작성일: 2026-05-18</small>
     </div>
-
-    <section class="intro-section">
-        <h2>대표적인 가양 밤문화 장르 3사 전격 비교</h2>
-        <p>솔직히 가양역 밤은 크게 세 가지로 정리할 수 있어. 취향에 안 맞으면 들어가자마자 하품만 찍찍 나오니까, 각자의 놀이 타입에 맞게 매칭해줄게.</p>
-        
-        <div class="card-grid">
-            <div class="card">
-                <h3>1. 감성 라운지 & 바</h3>
-                <p>가벼운 칵테일이나 샴페인 한잔하면서 조명 깔고 은은한 분위기를 내고 싶을 때 추천. 분위기 파악하기 좋고 조용하게 썰 풀기 좋지만 텐션은 살짝 아쉬울 수 있음.</p>
-            </div>
-            <div class="card">
-                <h3>2. 대형 노래타운</h3>
-                <p>소리 지르고 방방 뛰면서 친구들과 미친 듯이 노래 부르고 술게임 하고 싶을 때 제격. 안주 맛집이 많아서 2차 안주 빨 세우기 좋고 가성비 또한 나쁘지 않음.</p>
-            </div>
-            <div class="card">
-                <h3>3. 프리미엄 셔츠룸</h3>
-                <p>화끈하고 밀착된 홈런급 마인드로 특별한 밤을 추억하고 싶을 때 최고의 초이스. 대접 제대로 해주는 실장과 확실한 에이스들이 대기 중이라 후회 없는 선택이 됨.</p>
-            </div>
+  
+    <div class="review-card">
+      <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+        <strong>김태호</strong>
+        <span style="color:#e0a82e;">⭐⭐⭐⭐⭐</span>
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted);">입뺀 걱정 없는 코디 룩북 꿀팁 진짜 도움 많이 됐습니다. 덕분에 친구들이랑 어깨 힘 빡 주고 재밌게 놀았네요 ㅎㅎ</p>
+      <small style="display:block; margin-top:10px; color:#bbb;">작성일: 2026-05-21</small>
+    </div>
+  
+    <div class="review-card">
+      <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+        <strong>이지훈</strong>
+        <span style="color:#e0a82e;">⭐⭐⭐⭐⭐</span>
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted);">내돈내산 진짜 찐후기. 테이블 가격 투명하고 사운드 퀄리티가 국내 탑급 클럽 수준이라 귀가 너무 호강했습니다.</p>
+      <small style="display:block; margin-top:10px; color:#bbb;">작성일: 2026-05-25</small>
+    </div>
+  </div>
         </div>
+      </div>
     </section>
-
-    <section class="reviews-section">
-        <h2>가양 로컬 브로들의 실시간 방문 후기</h2>
-        
-        <div class="review-card">
-            <p>"가양역에서 클럽이나 가라오케 찾다가 가성비 셔츠룸 추천받아 갔는데 서비스 질이 완전 강남 뺨칩니다. 정찰제로 미리 고지해주신 가격 그대로 딱 떨어지게 마시고 와서 너무 유쾌했습니다."</p>
-            <div class="review-author">- 가양역 맥주요정 (28세)</div>
-        </div>
-
-        <div class="review-card">
-            <p>"생일파티 하려고 가라오케 룸 예약 잡았는데 과일 서비스에 음료수 한 박스까지 시원하게 쏴주셨습니다. 전화 목소리부터 의리가 팍팍 넘치던데 역시 가니까 찐이더군요."</p>
-            <div class="review-author">- 가양동 주민 한형님 (32세)</div>
-        </div>
-    </section>
-
-    <section class="intro-section">
-        <h2>가양 유흥 200% 즐기는 치트키</h2>
-        <p>형들, 예약할 때 귀찮다고 그냥 가거나 길거리 지나가다 불쑥 들어가는 거 진짜 하수나 하는 짓이다. 첫째, 주말에는 인기 매니저들 예약이 순식간에 차니까 무조건 전화를 미리 넣어서 컨디션 체크해라. 둘째, 술이랑 시간 옵션이 정찰제인지 먼저 묻고 가라. 셋째, 신뢰도 높은 로컬 실장의 직통 번호(010-6279-0862)로 미리 뚫어두는 게 술값 아끼는 가장 강력한 무기다.</p>
-    </section>
-</div>
-
-<footer>
-    <p>상호: 가양 밤거리 크루 | 대표자: 가양대장</p>
-    <p>문의 직통 전화: <strong>010-6279-0862</strong> (부재 시 문자 필수)</p>
-    <p>&copy; 2026 Gayang Sunset. All Rights Reserved. 본 사이트는 성인 전용 정보 포털입니다.</p>
-</footer>
-
+  </main>
+  <footer>
+    <div class="container">
+      <div>&copy; 2026 가양 클럽 스페셜 가이드. All Rights Reserved.</div>
+      <div>
+        <a href="index.html">홈</a> | <a href="about.html">정보</a> | <a href="blog.html">블로그</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
